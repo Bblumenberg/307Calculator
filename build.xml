@@ -145,7 +145,7 @@
   
   <target name="compile.module.calc.production" description="Compile module Calc; production classes">
     <mkdir dir="${calc.output.dir}"/>
-    <javac destdir="${calc.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.calc}/javac">
+    <javac srcdir="src" destdir="${calc.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.calc}/javac">
       <compilerarg line="${compiler.args.calc}"/>
       <bootclasspath refid="calc.module.bootclasspath"/>
       <classpath refid="calc.module.production.classpath"/>
@@ -154,7 +154,7 @@
     </javac>
     
     <copy todir="${calc.output.dir}">
-      <fileset dir="${module.calc.basedir}/trunk/src">
+      <fileset dir="${module.calc.basedir}/src">
         <patternset refid="compiler.resources"/>
         <type type="file"/>
       </fileset>
