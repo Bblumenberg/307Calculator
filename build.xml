@@ -144,8 +144,8 @@
   <target name="compile.module.calc" depends="compile.module.calc.production,compile.module.calc.tests" description="Compile module Calc"/>
   
   <target name="compile.module.calc.production" description="Compile module Calc; production classes">
-    <mkdir dir="${calc.output.dir}"/>
-    <javac srcdir="src" destdir="${calc.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.calc}/javac">
+    <mkdir dir="bin/calculator"/>
+    <javac srcdir="src" destdir="bin/calculator" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="javac">
       <compilerarg line="${compiler.args.calc}"/>
       <bootclasspath refid="calc.module.bootclasspath"/>
       <classpath refid="calc.module.production.classpath"/>
@@ -153,7 +153,7 @@
       <patternset refid="excluded.from.compilation.calc"/>
     </javac>
     
-    <copy todir="${calc.output.dir}">
+    <copy todir="bin/calculator">
       <fileset dir="${module.calc.basedir}/src">
         <patternset refid="compiler.resources"/>
         <type type="file"/>
@@ -164,7 +164,7 @@
   <target name="compile.module.calc.tests" depends="compile.module.calc.production" description="compile module Calc; test classes" unless="skip.tests"/>
   
   <target name="clean.module.calc" description="cleanup module">
-    <delete dir="${calc.output.dir}"/>
+    <delete dir="bin/calculator"/>
     <delete dir="${calc.testoutput.dir}"/>
   </target>
   
