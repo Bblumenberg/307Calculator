@@ -175,6 +175,8 @@
   <target name="clean" depends="clean.module.calc" description="cleanup all"/>
   
   <target name="build.modules" depends="init, clean, compile.module.calc" description="build all modules"/>
-  
+
+  <target name="build" depends="build.modules" description="build all"/>
+
   <target name="all" depends="build.modules" description="build all"/>
 </project>
