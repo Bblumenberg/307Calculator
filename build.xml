@@ -95,7 +95,7 @@
   
   <path id="calc.module.sourcepath">
     <dirset dir="${module.calc.basedir}">
-      <include name="trunk/src"/>
+      <include name="src"/>
     </dirset>
   </path>
   
@@ -113,7 +113,7 @@
     </javac>
     
     <copy todir="bin">
-      <fileset dir="${module.calc.basedir}/trunk/src">
+      <fileset dir="src">
         <patternset refid="compiler.resources"/>
         <type type="file"/>
       </fileset>
