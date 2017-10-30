@@ -145,7 +145,7 @@
   
   <target name="compile.module.calc.production" description="Compile module Calc; production classes">
     <mkdir dir="bin/calculator"/>
-    <javac srcdir="src" destdir="bin/calculator" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="javac">
+    <javac srcdir="src" destdir="bin/calculator" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true">
       <compilerarg line="${compiler.args.calc}"/>
       <bootclasspath refid="calc.module.bootclasspath"/>
       <classpath refid="calc.module.production.classpath"/>
